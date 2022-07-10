@@ -1,5 +1,7 @@
 # FastSolver2DPoisson
-Geometric multigrid solver for the homogeneous Poisson equation on a rectangle using a fourth order compact scheme. 
+Geometric multigrid solver for the homogeneous Poisson equation on a rectangle using a fourth order compact scheme.
+
+%%%%%%%%%%%%%%%%%%%%%%%% Shorth Description of fourth order compact scheme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Consider the Poisson equation 
 u_{xx} + u_{yy} = f, (x, y) \in D = [a_x, b_x] \times [a_y, b_y]
@@ -34,6 +36,8 @@ m4 = 10*(1 + \lambda^2)
 and \lambda = dx/dy
 
 This results in a sparse linear system L_h u = R_h f = f_R
+
+%%%%%%%%%%%%%%%%%%%%%%%% HOW to set the multigrid method %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Our multigrid settings are stored in FOCS2DSettings.f90 
 We will enumerate the parameters defined in in this module  
@@ -84,9 +88,17 @@ of the i^th iteration is r_h^k = f_R - L_h u^k, then
 the termination critria is 
 | r_h^k | \leq RELATIVE_TOLERANCE_MULTIGRID*|r_h^0| + ABSOLUTE_TOLERANCE_MULTIGRID
 
+%%%%%%%%%%%%%%%%%%%%%%%% Test Problem %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A sample test problem is listed in TestProblems/TestProblem1.f90.
+Its given domain is D = [0, 2] \times [0,1] (defined in the module) 
+with the test solution u(x,y) = sin(10.0*pi*x)*sin(2.0*pi*y). 
 
+in the Directory containing the makefile makeTest1FOCS.mk run the following commands 
+make -f makeTest1FOCS.mk 
+./exec 
 
-
+To delete all the executable files 
+make -f makeTest1FOCS.mk clean
 
 
 
