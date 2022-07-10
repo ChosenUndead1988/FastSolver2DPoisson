@@ -94,10 +94,13 @@ Its given domain is D = [0, 2] \times [0,1] (defined in the module)
 with the test solution u(x,y) = sin(10.0*pi*x)*sin(2.0*pi*y). 
 
 in the Directory containing the makefile makeTest1FOCS.mk run the following commands 
+in the command line
 make -f makeTest1FOCS.mk 
-./exec 
+./exec
 
-To delete all the executable files 
+The number printed is the error with respect to the inifity norm
+
+To delete all the executable files run the 
 make -f makeTest1FOCS.mk clean
 
 
